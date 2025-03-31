@@ -1,0 +1,127 @@
+@use "sass:math";
+
+///////////////////////////////////////////////////////////
+// mixins
+///////////////////////////////////////////////////////////
+
+// ---------------------------------------------------------
+// 必要ファイルインポート
+// ---------------------------------------------------------
+@use "../setting/variables" as *;
+
+// ---------------------------------------------------------
+// media query
+// ---------------------------------------------------------
+@mixin mq-up($bp) {
+  @media #{map-get($breakpoint_up, $bp)} {
+    @content;
+  }
+}
+
+@mixin mq-down($bp) {
+  @media #{map-get($breakpoint_down, $bp)} {
+    @content;
+  }
+}
+
+// ---------------------------------------------------------
+// icon
+// ---------------------------------------------------------
+@mixin icon($icon, $position: left, $type: solid) {
+  position: relative;
+  @if $position == 'left' {
+    &::before {
+      content: $icon;
+      @if $type == 'solid' {
+        font-family: 'Font Awesome 6 Free';
+      } @else if $type == 'brands' {
+        font-family: 'Font Awesome 6 Brands';
+      } @else if $type == 'thin' {
+        font-family: 'Font Awesome 6 Thin';
+      } @else {
+        font-family: 'Font Awesome 6 Regular';
+      }
+
+      font-size: 1.2em;
+      font-weight: bold;
+      color:#aaa;
+      position: absolute;
+      top: 50%;
+      // left: 1.5rem;
+      transform: translateY(-50%);
+    }
+  } @else {
+  &::after {
+    content: $icon;
+    @if $type == 'solid' {
+      font-family: 'Font Awesome 6 Free';
+    } @else if $type == 'brands' {
+      font-family: 'Font Awesome 6 Brands';
+    } @else if $type == 'thin' {
+      font-family: 'Font Awesome 6 Thin';
+    } @else {
+      font-family: 'Font Awesome 6 Regular';
+    }
+
+    font-size: 1.2em;
+    font-weight: bold;
+    color:#aaa;
+    position: absolute;
+    top: 50%;
+    // right: 1.5rem;
+    transform: translateY(-50%);
+    }
+  }
+}
+
+// ---------------------------------------------------------
+// display
+// ---------------------------------------------------------
+@mixin display-helper($breakpoint, $display-type) {
+  .d-#{$breakpoint}-#{$display-type} {
+    @if $display-type == "none" {
+      display: block;
+      @include mq-up($breakpoint) {
+        display: none;
+      }
+    }
+    @if $display-type == "block" {
+      display: none;
+      @include mq-up($breakpoint) {
+        display: block;
+      }
+    }
+  }
+}
+
+// ---------------------------------------------------------
+// clamp
+// ---------------------------------------------------------
+@function clamp_size($min, $max, $width_small: 375, $width_large: 1280) {
+  $preferred_vw_base: math.div(($max - $min), ($width_large - $width_small));
+  $preferred_vw: ($preferred_vw_base * 100) * 1vw;
+  $preferred_rem: ($width_small * -1 * $preferred_vw_base + $min) * .1rem;
+  @return clamp(#{$min * .1rem}, #{$preferred_rem} + #{$preferred_vw}, #{$max * .1rem});
+}
+
+// ---------------------------------------------------------
+//  hover
+// ---------------------------------------------------------
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+// ---------------------------------------------------------
+//  linkColor
+// ---------------------------------------------------------
+@mixin linkColor($color) {
+  color: $color;
+
+  &:hover, &:active, &:focus {
+    color: $color;
+  }
+}

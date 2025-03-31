@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+///////////////////////////////////////////////////////////
+// button
+///////////////////////////////////////////////////////////
+
+// ---------------------------------------------------------
+// 必要ファイルインポート
+// ---------------------------------------------------------
+@use "../setting/variables" as *;
+@use "../foundation/mixins" as *;
+
+.c-button {
+  text-align: center;
+  font-weight: 700;
+  border: 2px solid $color_black;
+  border-radius: 6rem;
+  min-width: 17rem;
+  padding: 1rem 3rem;
+  transition: color .3s ease, background-color .3s ease;
+
+  &--white {
+    &:hover {
+      background-color: $color_orange;
+    }
+  }
+
+  &--black {
+    color: #fff;
+    background-color: $color_black;
+
+    &:hover {
+      color: $color_black;
+      background-color: #fff;
+    }
+  }
+}

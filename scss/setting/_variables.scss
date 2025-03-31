@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+///////////////////////////////////////////////////////////
+// 変数定義用SASS
+///////////////////////////////////////////////////////////
+
+// ---------------------------------------------------------
+// ブレイクポイント
+// ---------------------------------------------------------
+$breakpoint_up: (
+  sm: "screen and (min-width: 576px)",
+  md: "screen and (min-width: 768px)",
+  lg: "screen and (min-width: 992px)",
+  xl: "screen and (min-width: 1200px)",
+  xxl: "screen and (min-width: 1400px)"
+);
+$breakpoint_down: (
+  sm: "screen and (max-width: 575.98px)",
+  md: "screen and (max-width: 767.98px)",
+  lg: "screen and (max-width: 991.98px)",
+  xl: "screen and (max-width: 1199.98px)",
+  xxl: "screen and (max-width: 1399.98px)"
+);
+
+// ---------------------------------------------------------
+// レイアウト
+// ---------------------------------------------------------
+// コンテナ幅
+$container: max(97%, 104rem);
+
+// ---------------------------------------------------------
+// z-index
+// ---------------------------------------------------------
+$z-hamburger: 500;
+$z-headerInner: 450;
+$z-nav: 400;
+$z-headerBg: 350;
+$z-header: 300;
+$z-fixedItem: 200;
+
+// ---------------------------------------------------------
+// hover
+// ---------------------------------------------------------
+$opacity: .6;
+$transition_opacity: opacity .3s ease;
+
+// ---------------------------------------------------------
+// カラー
+// ---------------------------------------------------------
+$color_black: #111;
+$color_gray: #FAFAFA;
+$color_orange: #F5810E;
+$color_l_orange: #FABE00;
+$gradation: linear-gradient(to bottom, #F8B819, #F0D320);
+
+// ---------------------------------------------------------
+// デフォルトフォント設定
+// ---------------------------------------------------------
+// フォントサイズ
+$fnt_size_default: 1.6rem;
+
+// 太さ
+$fnt_weight_default: 400;
+
+// 行間
+$fnt_lh_default: 1.7;
+
+// フォントファミリー
+@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Noto+Sans+JP:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+$font_ja: "Noto Sans JP", sans-serif;
+$font_en: "Montserrat", sans-serif;

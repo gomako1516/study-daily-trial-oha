@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+///////////////////////////////////////////////////////////
+// animation
+///////////////////////////////////////////////////////////
+
+/* GSAP 初期設定
+---------------------------------------------------------- */
+.js-fadeUp,
+.js-fadeIn,
+.js-scaleImage,
+.js-fadeUps > * {
+  opacity: 0;
+  visibility: hidden;
+}
+
+figure:has(.js-scaleImage) {
+  overflow: hidden;
+}

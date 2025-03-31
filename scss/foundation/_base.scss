@@ -1,0 +1,141 @@
+@charset "UTF-8";
+
+@use "../setting/variables" as *;
+@use "mixins" as *;
+
+* {
+  min-height: 0vw; /* clamp関数 safari対策 */
+}
+
+html,
+body {
+  color: $color_black;
+  font-weight: $fnt_weight_default;
+  font-size: 10px;
+  line-height: $fnt_lh_default;
+  font-family: $font_ja;
+  overflow-x: hidden;
+}
+
+div, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  box-sizing: border-box;
+  font-size: $fnt_size_default;
+  font-weight: $fnt_weight_default;
+}
+
+a {
+  color: $color_black;
+  text-decoration: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $color_black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+// ---------------------------------------------------------
+// 共通パーツ
+// ---------------------------------------------------------
+ul,
+ol,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+figure,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+p,
+li,
+dt,
+dd {
+  font-size: clamp_size(12, 16);
+}
+
+strong {
+  font-weight: bold;
+}
+
+.text-center {
+  text-align: center;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+/* フォームリセット
+---------------------------------------------------------- */
+input,
+button,
+select,
+textarea {
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font: inherit;
+  outline: none;
+
+  &::placeholder {
+    color: #c4c4c4;
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  appearance: none;
+  display: none;
+}
+
+input[type="submit"],
+input[type="button"],
+button,
+select {
+  cursor: pointer;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+button {
+  padding: 0;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  background: none;
+  touch-action: manipulation; // iOS 拡大ズームを無効
+}
